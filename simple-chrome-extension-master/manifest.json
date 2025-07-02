@@ -8,6 +8,27 @@
     "default_popup": "popup.html"
   },
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "storage",
+    "declarativeNetRequestWithHostAccess",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": [
+      "dist/background.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "dist/mellowtel-content.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
   ]
 }
